@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Dream_Cookery</string>
     <string name="hello">Hello</string>
+    <string name="western_text">WESTERN</string>
+    <string name="malaysian_text">MALAYSIAN</string>
+    <string name="chinese_text">CHINESE</string>
+    <string name="dessert_text">DESSERT</string>
 </resources>
