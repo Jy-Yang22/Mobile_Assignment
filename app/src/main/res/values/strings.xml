@@ -5,4 +5,5 @@
     <string name="malaysian_text">MALAYSIAN</string>
     <string name="chinese_text">CHINESE</string>
     <string name="dessert_text">DESSERT</string>
+    <string name="main_class_text">MAIN</string>
 </resources>

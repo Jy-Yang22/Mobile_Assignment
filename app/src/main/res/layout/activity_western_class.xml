@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainClassView"
+    tools:context=".WesternClass"
     android:background="@drawable/splash_screen">
 
+
     <TextView
-        android:id="@+id/class_type_main"
+        android:id="@+id/class_type_western"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="64dp"
-        android:text="@string/main_class_text"
+        android:text="@string/western_text"
         android:textSize="30sp"
         app:fontFamily="@font/modern_antiqua"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +44,7 @@
                 android:paddingRight="48dp"
                 android:text="@string/western_text"
                 android:textSize="24sp"
-                app:fontFamily="serif"
-                android:onClick="WesternClass"/>
+                app:fontFamily="serif" />
 
             <TextView
                 android:id="@+id/malaysian_text"
@@ -83,6 +83,4 @@
         </LinearLayout>
 
     </HorizontalScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
