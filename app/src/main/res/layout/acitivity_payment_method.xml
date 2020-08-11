@@ -26,7 +26,7 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="FPX"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="364dp" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Visa"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="222dp" />
 
@@ -42,7 +42,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="PayPal"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="294dp" />
 
@@ -58,7 +58,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Master"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="147dp" />
 
