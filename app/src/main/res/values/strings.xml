@@ -8,5 +8,10 @@
     <string name="main_class_text">MAIN</string>
     <string name="edit">Edit</string>
     <string name="connect_to_phone">Connect to phone</string>
-    <string name="purchase_history">purchase history</string>
+    <string name="current_bill">Current Bill</string>
+    <string name="purchase_history">Purchase History</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="faq">FAQ</string>
+    <string name="sign_out">Sign Out</string>
+
 </resources>
