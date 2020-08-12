@@ -5,57 +5,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#374C59">
+    android:background="#CAE6F8">
 
 
     <TextView
         android:id="@+id/home"
-        android:layout_width="57dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="184dp"
         android:layout_weight="1"
         android:gravity="center_horizontal"
-        android:text="HOME"
-        android:textSize="20dp"
+        android:text="@string/home"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/class_schedule"
-        android:layout_width="171dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:gravity="center_horizontal"
         android:text="CLASS SCHEDULE"
-        android:textSize="20dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home" />
 
     <TextView
         android:id="@+id/profile"
-        android:layout_width="153dp"
-        android:layout_height="31dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:gravity="center_horizontal"
         android:text="PROFILE"
-        android:textSize="20dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/class_schedule" />
 
     <TextView
         android:id="@+id/setting"
-        android:layout_width="126dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:gravity="center_horizontal"
         android:text="SETTING"
-        android:textSize="20dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
