@@ -14,6 +14,11 @@ public class MainClassView extends AppCompatActivity {
 
     private ImageView menuIcon;
 
+
+    //Menu Fragment
+    private boolean isMenuFragmentDisplayed = false;
+    static final String STATE_FRAGMENT = "state_of_fragment";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +28,27 @@ public class MainClassView extends AppCompatActivity {
         menuIcon.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                MenuFragment();
+                if(!isMenuFragmentDisplayed) {
+                    openMenuFragment();
+
+                }
+
+                else
+                    closeMenuFragment();
             }
         });
 
+        if(savedInstanceState != null)
+        {
+            isMenuFragmentDisplayed = savedInstanceState.getBoolean(STATE_FRAGMENT);
+        }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        isMenuFragmentDisplayed = false;
     }
 
     public void WesternClass(View view) {
@@ -34,12 +56,34 @@ public class MainClassView extends AppCompatActivity {
         startActivity(western);
     }
 
-    public void MenuFragment()
+    public void openMenuFragment()
     {
         MenuFragment menuFragment = new MenuFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         fragmentTransaction.add(R.id.flFragment, menuFragment).addToBackStack(null).commit();
+        isMenuFragmentDisplayed = true;
     }
+
+    public void closeMenuFragment()
+    {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        MenuFragment menuFragment = (MenuFragment) fragmentManager.findFragmentById(R.id.flFragment);
+        if(menuFragment != null)
+        {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.remove(menuFragment).commit();
+        }
+        isMenuFragmentDisplayed = false;
+
+    }
+
+    public void onSavedInstanceState(Bundle savedInstanceState)
+    {
+        savedInstanceState.putBoolean(STATE_FRAGMENT, isMenuFragmentDisplayed);
+        super.onSaveInstanceState(savedInstanceState);
+    }//hello
+
+
 }
