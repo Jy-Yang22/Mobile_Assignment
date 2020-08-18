@@ -23,4 +23,5 @@
     <string name="class_schedule">CLASS SCHEDULE</string>
     <string name="profile">PROFILE</string>
     <string name="setting">SETTING</string>
+    <string name="payment_method">PAYMENT METHOD</string>
 </resources>
