@@ -7,7 +7,6 @@
     <string name="dessert_text">DESSERT</string>
     <string name="main_class_text">MAIN</string>
     <string name="edit">Edit</string>
-    <string name="connect_to_phone">Connect to phone</string>
     <string name="current_bill">Current Bill</string>
     <string name="purchase_history">Purchase History</string>
     <string name="edit_profile">Edit Profile</string>
@@ -20,5 +19,7 @@
     <string name="class_schedule">CLASS SCHEDULE</string>
     <string name="profile">PROFILE</string>
     <string name="setting">SETTING</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="about_us">About Us</string>
 
 </resources>
