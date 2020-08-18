@@ -15,5 +15,8 @@
     <string name="sign_out">Sign Out</string>
     <string name="home">HOME</string>
     <string name="about_us">About Us</string>
+    <string name="class_schedule">CLASS SCHEDULE</string>
+    <string name="profile">PROFILE</string>
+    <string name="setting">SETTING</string>
 
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<group android:id="@+id/g1">
+    <item android:title="@string/home"
+          android:id="@+id/home"
+          android:onClick="onGroupItemClick"/>
+    <item android:title="@string/class_schedule"
+          android:id="@+id/class_schedule"
+          android:onClick="onGroupItemClick"/>
+    <item android:title="@string/profile"
+          android:id="@+id/profile"
+          android:onClick="onGroupItemClick"/>
+    <item android:title="@string/setting"
+          android:id="@+id/setting"
+          android:onClick="onGroupItemClick"/>
+</group>
+</menu>
