@@ -9,14 +9,16 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainClassView extends AppCompatActivity {
 
     private ImageView menuIcon;
-
+    private TextView westernText;
 
     //Menu Fragment
     private boolean isMenuFragmentDisplayed = false;
+    private boolean isClassViewFragmentDisplayed = false;
     static final String STATE_FRAGMENT = "state_of_fragment";
 
     @Override
@@ -24,7 +26,22 @@ public class MainClassView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_class_view);
 
+        westernText = findViewById(R.id.western_text);
         menuIcon = findViewById(R.id.menuIcon);
+
+
+        westernText.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(!isClassViewFragmentDisplayed)
+                {
+                    openClassViewFragment();
+                }
+
+            }
+        });
+
+
         menuIcon.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -49,11 +66,21 @@ public class MainClassView extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         isMenuFragmentDisplayed = false;
+        isClassViewFragmentDisplayed = false;
     }
 
-    public void WesternClass(View view) {
-        Intent western = new Intent(this, WesternClass.class);
-        startActivity(western);
+    public void openClassViewFragment() {
+        /*Intent western = new Intent(this, WesternClass.class);
+        startActivity(western);*/
+        ClassViewFragment classViewFragment = new ClassViewFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.flFragment, classViewFragment).addToBackStack(null).commit();
+        Bundle bundle = new Bundle();
+        bundle.putString("mainText", "Western");
+
+        classViewFragment.setArguments(bundle);
+        isClassViewFragmentDisplayed = true;
     }
 
     public void openMenuFragment()
@@ -83,7 +110,7 @@ public class MainClassView extends AppCompatActivity {
     {
         savedInstanceState.putBoolean(STATE_FRAGMENT, isMenuFragmentDisplayed);
         super.onSaveInstanceState(savedInstanceState);
-    }//hello
+    }
 
 
 }

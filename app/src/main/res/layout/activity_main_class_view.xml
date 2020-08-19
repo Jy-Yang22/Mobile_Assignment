@@ -7,18 +7,7 @@
     tools:context=".MainClassView"
     android:background="@drawable/splash_screen">
 
-    <TextView
-        android:id="@+id/class_type_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/main_class_text"
-        android:textSize="30sp"
-        app:fontFamily="@font/modern_antiqua"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
@@ -43,8 +32,7 @@
                 android:paddingRight="48dp"
                 android:text="@string/western_text"
                 android:textSize="24sp"
-                app:fontFamily="serif"
-                android:onClick="WesternClass"/>
+                app:fontFamily="serif" />
 
             <TextView
                 android:id="@+id/malaysian_text"
@@ -100,10 +88,10 @@
         android:name="com.example.dream_cookery.MenuFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/class_type_main" />
+        app:layout_constraintTop_toBottomOf="@+id/menuIcon" />
 
 
 
