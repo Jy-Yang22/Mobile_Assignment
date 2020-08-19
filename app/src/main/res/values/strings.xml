@@ -24,4 +24,9 @@
     <string name="profile">PROFILE</string>
     <string name="setting">SETTING</string>
     <string name="payment_method">PAYMENT METHOD</string>
+    <string name="facebook_link">Dream Cookery.</string>
+    <string name="email_link">dreamcookery@gmail.com</string>
+    <string name="phonoNo_link">Call Us 012-3456789</string>
+    <string name="feedback_text">Call us for any feedback</string>
+    <string name="about_us_desc">During the MCO, in order to let everyone not always play mobile phones or watch TV at home. During this period, my team and I developed an app called DREAM COOKERY. This is an app to teach people how to cook. We have developed online teaching to pass the people\'s time</string>
 </resources>

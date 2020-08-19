@@ -15,9 +15,10 @@ public class aboutUsView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
-        ImageView img = (ImageView)findViewById(R.id.facebook);
-        img.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+
+        ImageView img = (ImageView) findViewById(R.id.facebook);
+        img.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -26,9 +27,9 @@ public class aboutUsView extends AppCompatActivity {
             }
         });
 
-        ImageView img2 = (ImageView)findViewById(R.id.email);
-        img.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        ImageView img2 = (ImageView) findViewById(R.id.email);
+        img2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -37,17 +38,17 @@ public class aboutUsView extends AppCompatActivity {
             }
         });
 
-        ImageView img3 = (ImageView)findViewById(R.id.phone);
-        img.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        ImageView img3 = (ImageView) findViewById(R.id.phone);
+        img3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("tel:0123456789"));
+                intent.setData(Uri.parse("tel:012345678"));
                 startActivity(intent);
             }
         });
+
+
     }
-
-
 }
