@@ -16,6 +16,7 @@ public class MainClassView extends AppCompatActivity {
     private ImageView menuIcon;
     private TextView westernText;
 
+
     //Menu Fragment
     private boolean isMenuFragmentDisplayed = false;
     private boolean isClassViewFragmentDisplayed = false;
