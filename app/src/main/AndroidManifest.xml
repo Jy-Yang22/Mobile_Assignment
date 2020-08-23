@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".aboutUsView"></activity>
+        <activity android:name=".editProfileView"></activity>
+        <activity android:name=".aboutUsView" />
         <activity android:name=".profilePageView" />
         <activity android:name=".WesternClass" />
         <activity android:name=".MainClassView" />

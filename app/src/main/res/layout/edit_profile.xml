@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20sp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box"
+        android:hint="@string/edit_profile_name"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:padding="12sp"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/profile_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_profile_mail"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="12sp"
+        android:textSize="12sp"
+        android:background="@drawable/box"
+        android:textColor="@color/white"
+        android:layout_marginTop="16sp"
+        android:singleLine="true" />
+
+    <Spinner
+        android:id="@+id/gender"
+        android:hint="@string/edit_profile_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box"
+        android:textColor="@color/white"
+        android:maxLines="1"
+        android:padding="12sp"
+        android:textSize="12sp"
+        android:layout_marginTop="16sp"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/profile_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12sp"
+        android:background="@drawable/box"
+        android:hint="@string/edit_profile_phone"
+        android:inputType="phone"
+        android:maxLines="1"
+        android:padding="12sp"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/select_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12sp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/profile_birth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="12sp"
+            android:textSize="12sp"
+            android:background="@drawable/box"
+            android:hint="@string/edit_profile_birthday"
+            android:textColor="@color/white"
+            android:layout_marginTop="5sp"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/profile_birth_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:textColor="@color/white"
+            android:text="@string/select_date"
+            android:background="@color/colorPrimaryDark"
+            android:layout_weight="3"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save_edit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:textColor="@color/white"
+        android:text="@string/save_edit"
+        android:background="@color/colorPrimaryDark"
+        android:padding="12sp"/>
+
+
+</LinearLayout>

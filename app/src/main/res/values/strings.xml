@@ -6,6 +6,7 @@
     <string name="chinese_text">CHINESE</string>
     <string name="dessert_text">DESSERT</string>
     <string name="main_class_text">MAIN</string>
+
     <string name="edit">Edit</string>
     <string name="connect_to_phone">Connect to phone</string>
     <string name="current_bill">Current Bill</string>
@@ -15,6 +16,7 @@
     <string name="sign_out">Sign Out</string>
     <string name="home">HOME</string>
     <string name="about_us">About Us</string>
+
     <string name="log_in_text">Log in</string>
     <string name="password_hint">Password</string>
     <string name="forget_password_text">Forget password?</string>
@@ -23,10 +25,19 @@
     <string name="class_schedule">CLASS SCHEDULE</string>
     <string name="profile">PROFILE</string>
     <string name="setting">SETTING</string>
-    <string name="payment_method">PAYMENT METHOD</string>
+    <string name="payment_method">Payment Method</string>
     <string name="facebook_link">Dream Cookery.</string>
     <string name="email_link">dreamcookery@gmail.com</string>
-    <string name="phonoNo_link">Call Us 012-3456789</string>
+    <string name="phonoNo_link">Call Us 012–3456789</string>
     <string name="feedback_text">Call us for any feedback</string>
     <string name="about_us_desc">During the MCO, in order to let everyone not always play mobile phones or watch TV at home. During this period, my team and I developed an app called DREAM COOKERY. This is an app to teach people how to cook. We have developed online teaching to pass the people\'s time</string>
+
+    <string name="edit_profile_name">Name</string>
+    <string name="edit_profile_mail">Email Address</string>
+    <string name="edit_profile_phone">Phone number</string>
+    <string name="edit_profile_gender">Gender</string>
+    <string name="select_date">Date</string>
+    <string name="save_edit">Save edit</string>
+    <string name="edit_profile_birthday">Birthday</string>
+
 </resources>
