@@ -27,7 +27,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             spin.setAdapter(aa);
-        }
+        }//hello
 
 
     @Override
