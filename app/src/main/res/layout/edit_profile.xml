@@ -15,11 +15,11 @@
         android:maxLines="1"
         android:padding="12sp"
         android:singleLine="true"
-        android:textColor="@color/white"
+        android:textColor="#000000"
         android:textSize="12sp" />
 
     <EditText
-        android:id="@+id/profile_country"
+        android:id="@+id/profile_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edit_profile_mail"
@@ -28,20 +28,7 @@
         android:padding="12sp"
         android:textSize="12sp"
         android:background="@drawable/box"
-        android:textColor="@color/white"
-        android:layout_marginTop="16sp"
-        android:singleLine="true" />
-
-    <Spinner
-        android:id="@+id/gender"
-        android:hint="@string/edit_profile_gender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/box"
-        android:textColor="@color/white"
-        android:maxLines="1"
-        android:padding="12sp"
-        android:textSize="12sp"
+        android:textColor="#000000"
         android:layout_marginTop="16sp"
         android:singleLine="true" />
 
@@ -56,7 +43,7 @@
         android:maxLines="1"
         android:padding="12sp"
         android:singleLine="true"
-        android:textColor="@color/white"
+        android:textColor="#000000"
         android:textSize="12sp" />
 
     <LinearLayout
@@ -66,7 +53,7 @@
         android:layout_marginTop="12sp"
         android:orientation="horizontal">
 
-        <EditText
+        <TextView
             android:id="@+id/profile_birth"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -77,31 +64,34 @@
             android:textSize="12sp"
             android:background="@drawable/box"
             android:hint="@string/edit_profile_birthday"
-            android:textColor="@color/white"
+            android:textColor="#000000"
             android:layout_marginTop="5sp"
             android:singleLine="true" />
 
-        <Button
-            android:id="@+id/profile_birth_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8sp"
-            android:textColor="@color/white"
-            android:text="@string/select_date"
-            android:background="@color/colorPrimaryDark"
-            android:layout_weight="3"/>
-
     </LinearLayout>
+
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp"
+        android:background="@drawable/box"
+        android:hint="@string/edit_profile_gender"
+        android:maxLines="1"
+        android:padding="12sp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/save_edit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8sp"
-        android:textColor="@color/white"
-        android:text="@string/save_edit"
         android:background="@color/colorPrimaryDark"
-        android:padding="12sp"/>
+        android:padding="12sp"
+        android:text="@string/save_edit"
+        android:textColor="@color/white" />
 
 
 </LinearLayout>
