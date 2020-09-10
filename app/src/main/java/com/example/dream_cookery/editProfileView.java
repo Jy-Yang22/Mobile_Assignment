@@ -1,6 +1,7 @@
 package com.example.dream_cookery;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -79,6 +81,10 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
     {
     }
 
-
+    public void BackToProfile(View arg0) {
+        Intent it1 = new Intent(getApplicationContext(), profilePageView.class);
+        startActivity(it1);
+        Toast.makeText(getApplicationContext(),"Edit successful",Toast.LENGTH_SHORT).show();
+    }
 
 }

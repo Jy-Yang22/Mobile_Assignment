@@ -90,6 +90,7 @@
         android:layout_marginTop="8sp"
         android:background="@color/colorPrimaryDark"
         android:padding="12sp"
+        android:onClick="BackToProfile"
         android:text="@string/save_edit"
         android:textColor="@color/white" />
 

@@ -2,10 +2,13 @@ package com.example.dream_cookery;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-        import android.os.Bundle;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class profilePageView extends AppCompatActivity {
 
@@ -22,6 +25,22 @@ public class profilePageView extends AppCompatActivity {
     }
     public void onGroupItemClick(MenuItem item) {
     }
+
+    public void goToEditProfile(View arg0) {
+        Intent it2 = new Intent(getApplicationContext(), editProfileView.class);
+        startActivity(it2);
+    }
+
+    public void goToPurchaseHistory(View arg0) {
+        Intent it3 = new Intent(getApplicationContext(), purchaseHistoryView.class);
+        startActivity(it3);
+    }
+
+    public void goToAboutUs(View arg0) {
+        Intent it4 = new Intent(getApplicationContext(), aboutUsView.class);
+        startActivity(it4);
+    }
+
 
 }
 

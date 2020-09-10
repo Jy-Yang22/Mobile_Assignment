@@ -73,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:onClick="goToEditProfile"
                 android:orientation="vertical">
 
 
@@ -121,6 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:onClick="goToPurchaseHistory"
                 android:orientation="vertical">
 
 
@@ -145,6 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:onClick="goToAboutUs"
                 android:orientation="vertical">
 
                 <TextView
