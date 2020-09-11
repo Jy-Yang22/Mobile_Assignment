@@ -24,4 +24,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainClassView.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
 }
