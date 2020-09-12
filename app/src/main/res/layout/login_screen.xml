@@ -9,34 +9,33 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/dream_cookery_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:src="@drawable/dream_cookery_heading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/textInputLayout"
-        android:layout_width="246dp"
+        android:layout_width="300dp"
         android:layout_height="67dp"
         android:layout_marginTop="50dp"
+        android:hint="Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:hint="Username" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="@string/log_in_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +43,7 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="245dp"
+        android:layout_width="300dp"
         android:layout_height="55dp"
         android:ems="10"
         android:hint="@string/password_hint"
@@ -53,17 +52,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
+
+    <com.rey.material.widget.CheckBox
+        android:id="@+id/remember_me_checkbox"
+        style="@style/Material.Drawable.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="Remember Me"
+        android:textColor="#423001"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/forget_password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
     <TextView
         android:id="@+id/forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/forget_password_text"
         android:textColor="#423001"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintEnd_toStartOf="@+id/login_button"
+        app:layout_constraintTop_toTopOf="@+id/login_button" />
 
     <TextView
         android:id="@+id/register_button"
