@@ -84,14 +84,14 @@
         android:textSize="12sp" />
 
     <Button
-        android:id="@+id/save_edit_button"
+        android:id="@+id/edit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8sp"
         android:background="@color/colorPrimaryDark"
         android:padding="12sp"
         android:onClick="BackToProfile"
-        android:text="@string/save_edit"
+        android:text="@string/edit_button"
         android:textColor="@color/white" />
 
 

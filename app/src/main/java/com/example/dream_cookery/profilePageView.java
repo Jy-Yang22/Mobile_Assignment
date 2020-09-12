@@ -26,7 +26,7 @@ public class profilePageView extends AppCompatActivity {
     public void onGroupItemClick(MenuItem item) {
     }
 
-    public void goToEditProfile(View arg0) {
+    public void goToProfileDetail(View arg0) {
         Intent it2 = new Intent(getApplicationContext(), editProfileView.class);
         startActivity(it2);
     }

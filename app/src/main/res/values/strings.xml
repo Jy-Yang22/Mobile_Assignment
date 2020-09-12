@@ -38,7 +38,9 @@
     <string name="edit_profile_phone">Phone number</string>
     <string name="edit_profile_gender">Gender</string>
     <string name="select_date">Date</string>
-    <string name="save_edit">Save edit</string>
+    <string name="editProfileDetail">edit</string>
     <string name="edit_profile_birthday">Birthday</string>
+    <string name="save">save</string>
+    <string name="edit_button">Edit</string>
 
 </resources>

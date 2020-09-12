@@ -2,6 +2,7 @@ package com.example.dream_cookery;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,13 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
     String[] gender = {"Male", "Female"};
 
     private static final String TAG = editProfileView.class.getSimpleName();
+
+    private TextView profileDetailName;
+    private EditText profileEditName;
+    private Button saveButton;
+    public static final String SHARED_PREFS = "com.example.dream_cookery";
+    public static final String TEXT = "text";
+    private String text;
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -70,6 +80,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                 }
             };
         }
+
 
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id)
