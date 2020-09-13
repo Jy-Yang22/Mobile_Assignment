@@ -132,11 +132,12 @@ public class RegisterActivity extends AppCompatActivity {
                     fReference.child("email").setValue(email);
                     fReference.child("phoneNumber").setValue(phoneNum);
 
-                    /*SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    //shared preferences
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("stayLogged","false");
                     editor.apply();
-                    finish();*/
+                    finish();
                 }
                 else
                 {
