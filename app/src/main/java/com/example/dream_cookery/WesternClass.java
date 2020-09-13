@@ -10,5 +10,5 @@ public class WesternClass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_western_class);
-    }
+    }//hello
 }
