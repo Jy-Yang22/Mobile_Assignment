@@ -154,6 +154,15 @@
 
         </RadioGroup>
 
+        <Button
+            android:id="@+id/button_purchaseSlot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:text="Purchase Slot">
+
+        </Button>
+
     </LinearLayout>
 </ScrollView>
 
