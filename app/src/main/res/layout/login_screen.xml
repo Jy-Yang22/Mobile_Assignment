@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/dream_cookery_logo"
+        android:id="@+id/login_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -19,15 +19,25 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
-        android:id="@+id/textInputLayout"
+        android:id="@+id/email_input_layout"
         android:layout_width="300dp"
         android:layout_height="67dp"
         android:layout_marginTop="50dp"
-        android:hint="Username"
+        android:hint="Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/login_logo" />
 
+    <EditText
+        android:id="@+id/password_input_layout"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_input_layout" />
 
     <Button
         android:id="@+id/login_button"
@@ -39,18 +49,9 @@
         android:text="@string/log_in_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password_input_layout" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:hint="@string/password_hint"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
 
 
     <com.rey.material.widget.CheckBox
@@ -65,8 +66,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/forget_password"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintStart_toStartOf="@+id/email_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/password_input_layout" />
 
     <TextView
         android:id="@+id/forget_password"
@@ -81,12 +82,18 @@
         app:layout_constraintTop_toTopOf="@+id/login_button" />
 
     <TextView
-        android:id="@+id/register_button"
+        android:id="@+id/register_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:outlineAmbientShadowColor="#000000"
+        android:outlineSpotShadowColor="#000000"
+        android:shadowColor="#000000"
+        android:shadowDx="14"
+        android:shadowDy="14"
+        android:shadowRadius="14"
         android:text="@string/register_text"
-        android:textColor="#423001"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
