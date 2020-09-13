@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "987905242424",
+    "firebase_url": "https://dream-cookery-ad7fa.firebaseio.com",
+    "project_id": "dream-cookery-ad7fa",
+    "storage_bucket": "dream-cookery-ad7fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987905242424:android:adccb4376e4980937cfdcd",
+        "android_client_info": {
+          "package_name": "com.example.dream_cookery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987905242424-vhu8a8bl5mk7cfa2elkmsv6d1p6ol21q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dream_cookery",
+            "certificate_hash": "8b6d2215c18136dbc0b405876a07225b6ce6ba0c"
+          }
+        },
+        {
+          "client_id": "987905242424-g145frhp3bin22dbbpnfbrbud6tjtrta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArJebzGnlNx_QdV_KFaqXUsa20NNDR6i8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987905242424-g145frhp3bin22dbbpnfbrbud6tjtrta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
