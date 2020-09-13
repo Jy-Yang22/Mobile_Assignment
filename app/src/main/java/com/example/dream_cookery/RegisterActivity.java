@@ -5,15 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,11 +50,6 @@ public class RegisterActivity extends AppCompatActivity {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /*FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
-
-                myRef.setValue("Hello, World!");*/
                 CreateAccount();
             }
         });
@@ -61,13 +63,6 @@ public class RegisterActivity extends AppCompatActivity {
         String phoneNum = inputPhoneNumber.getText().toString();
         String password = inputPassword.getText().toString();
 
-        /*FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef;
-        myRef = database.getReference("users").child(username);
-        myRef.child("userID").setValue(username);
-        myRef.child("username").setValue(username);
-        myRef.child("email").setValue(email);
-        Toast.makeText(RegisterActivity.this, "yahoolooo", Toast.LENGTH_SHORT).show();*/
 
         if(TextUtils.isEmpty(email))
         {
@@ -85,6 +80,10 @@ public class RegisterActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Please write your password...", Toast.LENGTH_SHORT).show();
         }
+        else if (password.length() < 6)
+        {
+            Toast.makeText(this, "Password has to be 6 characters or longer .", Toast.LENGTH_SHORT).show();
+        }
         else
         {
             loadingBar.setTitle("Create Account");
@@ -92,10 +91,61 @@ public class RegisterActivity extends AppCompatActivity {
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
-            ValidateEmail(email, username, phoneNum, password);
+            /*ValidateEmail(email, username, phoneNum, password);*/
+
+            ValidateCredentials(email, username, phoneNum, password);
         }
 
 
+    }
+
+    private void ValidateCredentials(final String email, final String username, final String phoneNum, final String password)
+    {
+        final FirebaseAuth fBaseAuth = FirebaseAuth.getInstance();
+        fBaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())
+                {
+                    Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
+                    openMainActivity();
+                    FirebaseUser fUser = fBaseAuth.getCurrentUser();
+                    fUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(RegisterActivity.this, "Verification Email has been sent.", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(RegisterActivity.this, "Verification Email failed to be sent.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    String userID;
+                    userID = fBaseAuth.getCurrentUser().getUid();
+                    FirebaseDatabase fDatabase = FirebaseDatabase.getInstance();
+                    DatabaseReference fReference;
+                    fReference = fDatabase.getReference("Users").child(userID);
+                    fReference.child("userID").setValue(userID);
+                    fReference.child("username").setValue(username);
+                    fReference.child("email").setValue(email);
+                    fReference.child("phoneNumber").setValue(phoneNum);
+
+                    /*SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("stayLogged","false");
+                    editor.apply();
+                    finish();*/
+                }
+                else
+                {
+                    loadingBar.dismiss();
+                    Toast.makeText(RegisterActivity.this, "Error: Please try again...", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
     }
 
     private void openMainActivity()
@@ -105,7 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void ValidateEmail(final String email, final String username, final String phoneNum, final String password)
+    /*private void ValidateEmail(final String email, final String username, final String phoneNum, final String password)
     {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -157,5 +207,7 @@ public class RegisterActivity extends AppCompatActivity {
                 loadingBar.dismiss();
             }
         });
-    }
+    }*/
+
+
 }

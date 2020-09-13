@@ -37,10 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void helloWorld(View view) {
-        Toast.makeText(this, "Hello World!", Toast.LENGTH_SHORT).show();
-        openMainClassView();
-    }
 
     public void openMainClassView() {
         Intent intent = new Intent(this, editProfileView.class);
