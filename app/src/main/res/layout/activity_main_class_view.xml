@@ -83,6 +83,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_menu_24" />
 
+
     <FrameLayout
         android:id="@+id/flFragment"
         android:name="com.example.dream_cookery.MenuFragment"
@@ -91,7 +92,9 @@
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/menuIcon">
+
+    </FrameLayout>
 
 
 

@@ -32,11 +32,23 @@
             />
 
         <TextView
-            android:id="@+id/class_description"
+            android:id="@+id/class_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/class_image"
-            android:text="Product Description"
+            android:text="Class Price"
+            android:textAlignment="center"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/class_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/class_price"
+            android:text="Class Description"
             android:textAlignment="center"
             android:textSize="16dp"
             android:textStyle="bold"

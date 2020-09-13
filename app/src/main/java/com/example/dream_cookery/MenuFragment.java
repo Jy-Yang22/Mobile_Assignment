@@ -33,6 +33,8 @@ public class MenuFragment extends Fragment {
         return rootView;
     }
 
+
+
     public void goToHome()
     {
         Intent homeText = new Intent(getActivity(), MainActivity.class);
