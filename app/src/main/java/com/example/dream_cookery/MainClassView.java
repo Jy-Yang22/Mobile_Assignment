@@ -55,7 +55,7 @@ public class MainClassView extends AppCompatActivity {
         westernText.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if(!isClassViewFragmentDisplayed && !isMenuFragmentDisplayed)
+                if(!isMenuFragmentDisplayed)
                 {
                     openWesternClassViewFragment();
                 }
@@ -67,9 +67,29 @@ public class MainClassView extends AppCompatActivity {
             @Override
 
             public void onClick(View view) {
-                if(!isClassViewFragmentDisplayed && !isMenuFragmentDisplayed)
+                if(!isMenuFragmentDisplayed)
                 {
                     openMalaysianClassViewFragment();
+                }
+            }
+        });
+
+        chineseText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isMenuFragmentDisplayed)
+                {
+                    openChineseClassViewFragment();
+                }
+            }
+        });
+
+        dessertText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isMenuFragmentDisplayed)
+                {
+                    openDessertClassViewFragment();
                 }
             }
         });
@@ -114,27 +134,60 @@ public class MainClassView extends AppCompatActivity {
 
     public void openWesternClassViewFragment() {
 
+        ClassViewFragment newFragment = new ClassViewFragment();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flFragment, classViewFragment).addToBackStack(null);
+        fragmentTransaction.replace(R.id.flFragment, newFragment).addToBackStack(null);
         fragmentTransaction.commit();
 
         bundle = new Bundle();
         bundle.putString("mainText", "Western");
 
-        classViewFragment.setArguments(bundle);
+        newFragment.setArguments(bundle);
         isClassViewFragmentDisplayed = true;
     }
 
     public void openMalaysianClassViewFragment()
     {
+        ClassViewFragment newFragment = new ClassViewFragment();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flFragment, classViewFragment).addToBackStack(null);
+        fragmentTransaction.replace(R.id.flFragment, newFragment).addToBackStack(null);
+
         fragmentTransaction.commit();
 
         bundle = new Bundle();
         bundle.putString("mainText", "Malaysian");
 
-        classViewFragment.setArguments(bundle);
+        newFragment.setArguments(bundle);
+        isClassViewFragmentDisplayed = true;
+    }
+
+    public void openChineseClassViewFragment()
+    {
+        ClassViewFragment newFragment = new ClassViewFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, newFragment).addToBackStack(null);
+
+        fragmentTransaction.commit();
+
+        bundle = new Bundle();
+        bundle.putString("mainText", "Chinese");
+
+        newFragment.setArguments(bundle);
+        isClassViewFragmentDisplayed = true;
+    }
+
+    public void openDessertClassViewFragment()
+    {
+        ClassViewFragment newFragment = new ClassViewFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, newFragment).addToBackStack(null);
+
+        fragmentTransaction.commit();
+
+        bundle = new Bundle();
+        bundle.putString("mainText", "Dessert");
+
+        newFragment.setArguments(bundle);
         isClassViewFragmentDisplayed = true;
     }
 

@@ -77,6 +77,20 @@ public class ClassViewFragment extends Fragment {
             Log.d("Hello", "Malaysian");
             mainText.setText(mainTextString);
         }
+        else if(getArguments().get("mainText") == "Chinese")
+        {
+            mainTextString = getArguments().getString("mainText");
+            ClassesRef = FirebaseDatabase.getInstance().getReference("Classes").child(mainTextString);
+            Log.d("Hello", "Chinese");
+            mainText.setText(mainTextString);
+        }
+        else if(getArguments().get("mainText") == "Dessert")
+        {
+            mainTextString = getArguments().getString("mainText");
+            ClassesRef = FirebaseDatabase.getInstance().getReference("Classes").child(mainTextString);
+            Log.d("Hello", "Dessert");
+            mainText.setText(mainTextString);
+        }
 
         FirebaseRecyclerOptions<Classes> options =
                 new FirebaseRecyclerOptions.Builder<Classes>()
