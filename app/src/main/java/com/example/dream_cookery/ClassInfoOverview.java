@@ -99,7 +99,9 @@ public class ClassInfoOverview extends AppCompatActivity {
                 String s1=english.getText().toString();
                 String s2=malay.getText().toString();
                 String s3=chinese.getText().toString();
+                String classNm=name.getText().toString();
                 intent.putExtra("price",pri);
+                intent.putExtra("className",classNm);
                 if(timeslot1.isChecked()) {
                     intent.putExtra("timeSlot", t1);
                 }
