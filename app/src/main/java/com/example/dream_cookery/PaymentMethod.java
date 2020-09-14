@@ -97,11 +97,14 @@ public class PaymentMethod extends AppCompatActivity {
         String price = getIntent().getStringExtra("price");
         String subtitle = getIntent().getStringExtra("subtitle");
         String timeslot = getIntent().getStringExtra("timeSlot");
+        String className = getIntent().getStringExtra("className");
           final AlertDialog.Builder payment = new AlertDialog.Builder(PaymentMethod.this);
             payment.setTitle("Confirmation");
-            payment.setMessage( "Timeslot : " + timeslot + "\n" +
+            payment.setMessage( "Class : " + className + "\n" +
+                                "Timeslot : " + timeslot + "\n" +
                                 "Subtitle : " + subtitle + "\n" +
-                                "Price: " + price  );
+                                "Price: " + price + "\n" +
+                    "Click OK to confirm, or Cancel to return:");
 
 
             payment.setPositiveButton("OK", new DialogInterface.OnClickListener()
