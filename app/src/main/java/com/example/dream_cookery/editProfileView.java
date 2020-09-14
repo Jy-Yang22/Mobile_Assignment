@@ -30,10 +30,9 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
     private static final String TAG = editProfileView.class.getSimpleName();
 
     Button Save;
-    EditText editName, editEmail, editPhone;
+    EditText editName, editPhone;
     TextView resultBirthday;
     String eName;
-    String eEmail;
     String eBirthday;
     int ePhone;
 
@@ -93,7 +92,6 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
             //shared preferences
             Save = (Button)findViewById(R.id.save_Button);
             editName = (EditText)findViewById(R.id.profile_name);
-            editEmail = (EditText)findViewById(R.id.profile_email);
             editPhone = (EditText)findViewById(R.id.profile_phone);
             resultBirthday = (TextView) findViewById(R.id.profile_birth);
 
@@ -102,8 +100,6 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
 
             final String e_Name = prefs.getString("eName","");
             editName.setText(e_Name);
-            String e_Email = prefs.getString("eEmail","");
-            editEmail.setText(e_Email);
             int e_Phone = prefs.getInt("ePhone", 0);
             editPhone.setText(""+e_Phone);
             final String e_Birthday = prefs.getString("eBirthday","");
@@ -123,13 +119,11 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                     }
 
                     eName = editName.getText().toString();
-                    eEmail = editEmail.getText().toString();
                     ePhone = Integer.parseInt(editPhone.getText().toString());
                     eBirthday = mDisplayDate.getText().toString();
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("eName",eName);
-                    editor.putString("eEmail",eEmail);
                     editor.putInt("ePhone",ePhone);
                     editor.putString("eBirthday",eBirthday);
                     editor.apply();
