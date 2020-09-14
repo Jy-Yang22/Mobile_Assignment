@@ -1,6 +1,9 @@
 package com.example.dream_cookery;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +21,8 @@ import com.squareup.picasso.Picasso;
 
 
 public class ClassInfoOverview extends AppCompatActivity {
+
+    Button p;
     TextView name,id,description,insName,price;
     ImageView image;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -41,6 +46,7 @@ public class ClassInfoOverview extends AppCompatActivity {
         description=(TextView)findViewById(R.id.classInfoDescription);
         insName=(TextView)findViewById(R.id.classInfoInsName);
         price=(TextView)findViewById(R.id.classInfoPrice);
+        p= (Button) findViewById(R.id.button_purchaseSlot);
 
 
         getProductDetails(classID);
@@ -71,7 +77,10 @@ public class ClassInfoOverview extends AppCompatActivity {
             }
         });
     }
-
+            public void onPurchaseSlot(View view){
+                Intent intent=new Intent(ClassInfoOverview.this, PaymentMethod.class);
+                startActivity(intent);
+    }
 
 
 }
