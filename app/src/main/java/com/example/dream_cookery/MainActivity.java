@@ -25,8 +25,8 @@ import com.rey.material.widget.CheckBox;
 
 public class MainActivity extends AppCompatActivity {
     //firebase stuff
-    private FirebaseAuth fBaseAuth;
-    private FirebaseAuth.AuthStateListener fAuthStateListener;
+    public FirebaseAuth fBaseAuth;
+    FirebaseAuth.AuthStateListener fAuthStateListener;
 
     private CheckBox stayLogged;
     private Button loginButton;

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MenuFragment extends Fragment {
 
-    private TextView homeText;
+    private TextView homeText, profileText;
 
 
     public MenuFragment() {
@@ -32,16 +32,31 @@ public class MenuFragment extends Fragment {
             }
         });
 
+        profileText = rootView.findViewById(R.id.profile);
+        profileText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToProfile();
+            }
+        });
+
 
         return rootView;
     }
 
 
 
-    public void goToHome()
+    private void goToHome()
     {
         Intent intent = new Intent(getActivity(), MainClassView.class);
         startActivity(intent);
     }
+
+    private void goToProfile()
+    {
+        Intent intent = new Intent(getActivity(), profilePageView.class);
+        startActivity(intent);
+    }
+
 
 }
