@@ -23,14 +23,14 @@ public class ClassInfoOverview extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference dataRef,databaseReference;
     FirebaseAuth mFirebaseAuth;
-    private String productID = "";
+    private String classID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_info_overview);
 
-        productID = getIntent().getStringExtra("cID");
+        classID = getIntent().getStringExtra("cID");
 
 
 
@@ -40,36 +40,10 @@ public class ClassInfoOverview extends AppCompatActivity {
         description=(TextView)findViewById(R.id.classInfoDescription);
         insName=(TextView)findViewById(R.id.classInfoInsName);
 
-        /*mFirebaseAuth= FirebaseAuth.getInstance();
-        String classid = getIntent().getStringExtra("cID");
-        databaseReference= firebaseDatabase.getReference("C1");
-        dataRef =databaseReference.child(classid);
-        id.setText(classid);*/
 
-        getProductDetails(productID);
+        getProductDetails(classID);
     }
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        dataRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String nm = dataSnapshot.child("cInfoName").getValue(String.class);
-                String img = dataSnapshot.child("cInfoImage").getValue(String.class);
-                String dsc = dataSnapshot.child("cInfoDescription").getValue(String.class);
-                String insNm = dataSnapshot.child("cInfoInsName").getValue(String.class);
-                name.setText(nm);
-                Picasso.get().load(img).into(image);
-                description.setText(dsc);
-                insName.setText(insNm);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }*/
 
     private void getProductDetails(String classID)
     {
@@ -82,8 +56,9 @@ public class ClassInfoOverview extends AppCompatActivity {
                 {
                     Classes classes = dataSnapshot.getValue(Classes.class);
                     name.setText(classes.getcName());
-                    description.setText(classes.getcDescription());
+                    description.setText(classes.getcInfoDescription());
                     Picasso.get().load(classes.getcImage()).into(image);
+                    insName.setText(classes.getcInsName());
                 }
             }
 
