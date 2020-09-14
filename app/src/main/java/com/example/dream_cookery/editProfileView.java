@@ -31,6 +31,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
 
     Button Save;
     EditText editName, editPhone;
+    EditText editGender;
     TextView resultBirthday;
     String eName;
     String eBirthday;
@@ -49,14 +50,14 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
             setContentView(R.layout.edit_profile);
 
             //spinner for gender
-            Spinner spin = (Spinner) findViewById(R.id.gender);
+            final Spinner spin = (Spinner) findViewById(R.id.gender);
             spin.setOnItemSelectedListener(this);
 
             ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_list_item_1, gender);
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             spin.setAdapter(aa);
-            eGender = spin.getSelectedItem().toString();
+
 
             //display date to let user choose
             mDisplayDate = (EditText)findViewById(R.id.profile_birth);
@@ -106,6 +107,17 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
             editPhone.setText(""+e_Phone);
             final String e_Birthday = prefs.getString("eBirthday","");
             resultBirthday.setText(""+e_Birthday);
+            if(prefs.getString("eGender","")=="Female")
+            {
+                String temp = gender[0];
+                gender[0] = gender[1];
+                gender[1] = temp;
+                aa = new ArrayAdapter(this, android.R.layout.simple_list_item_1, gender);
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spin.setAdapter(aa);
+
+            }
+
 
             Save.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -119,20 +131,18 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                     {
                         Toast.makeText(editProfileView.this, "Please fill up your birthday date...", Toast.LENGTH_SHORT).show();
                     }
-                    else if(ePhone == 0)
-                    {
-                        Toast.makeText(editProfileView.this, "Please fill up your numer...", Toast.LENGTH_SHORT).show();
-                    }
                     else
                     {
                         eName = editName.getText().toString();
                         ePhone = Integer.parseInt(editPhone.getText().toString());
                         eBirthday = mDisplayDate.getText().toString();
+                        eGender = spin.getSelectedItem().toString();
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putString("eName",eName);
                         editor.putInt("ePhone",ePhone);
                         editor.putString("eBirthday",eBirthday);
+                        editor.putString("eGender",eGender);
                         editor.apply();
 
 
