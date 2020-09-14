@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void openMainClassView() {
-        Intent intent = new Intent(this, editProfileView.class);
+        Intent intent = new Intent(this, MainClassView.class);
         startActivity(intent);
     }
 
