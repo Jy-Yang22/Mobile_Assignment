@@ -34,7 +34,7 @@ public class ClassInfoOverview extends AppCompatActivity {
         image=(ImageView)findViewById(R.id.classInfoImage);
         description=(TextView)findViewById(R.id.classInfoDescription);
         insName=(TextView)findViewById(R.id.classInfoInsName);
-        String classid = getIntent().getStringExtra("id");
+        String classid = getIntent().getStringExtra("cID");
         databaseReference= firebaseDatabase.getReference("C1");
         dataRef =databaseReference.child(classid);
         id.setText(classid);
