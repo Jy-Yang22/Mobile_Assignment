@@ -61,7 +61,7 @@ public class ClassInfoOverview extends AppCompatActivity {
                     description.setText(classes.getcInfoDescription());
                     Picasso.get().load(classes.getcImage()).into(image);
                     insName.setText(classes.getcInsName());
-                    price.setText("RM " + classes.getcPrice() );
+                    price.setText("RM " + classes.getcPrice() + " for 8 lessons");
                 }
             }
 
