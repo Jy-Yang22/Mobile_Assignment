@@ -2,19 +2,22 @@ package com.example.dream_cookery.Models;
 
 public class Classes {
 
-    private String cName, cDescription, cImage, cCategory, cPrice, cID;
+    private String cName, cDescription, cImage, cCategory, cPrice, cID, cInfoDescription, cInsName;
 
     public Classes()
     {
 
     }
 
-    public Classes(String cName, String cDescription, String cPrice, String cImage, String cCategory) {
+    public Classes(String cName, String cDescription, String cImage, String cCategory, String cPrice, String cID, String cInfoDescription, String cInsName) {
         this.cName = cName;
         this.cDescription = cDescription;
-        this.cPrice = cPrice;
         this.cImage = cImage;
         this.cCategory = cCategory;
+        this.cPrice = cPrice;
+        this.cID = cID;
+        this.cInfoDescription = cInfoDescription;
+        this.cInsName = cInsName;
     }
 
     public String getcName() {
@@ -41,6 +44,14 @@ public class Classes {
         return cID;
     }
 
+    public String getcInfoDescription() {
+        return cInfoDescription;
+    }
+
+    public String getcInsName() {
+        return cInsName;
+    }
+
     public void setcName(String cName) {
         this.cName = cName;
     }
@@ -63,5 +74,13 @@ public class Classes {
 
     public void setcID(String cID) {
         this.cID = cID;
+    }
+
+    public void setcInfoDescription(String cInfoDescription) {
+        this.cInfoDescription = cInfoDescription;
+    }
+
+    public void setcInsName(String cInsName) {
+        this.cInsName = cInsName;
     }
 }
