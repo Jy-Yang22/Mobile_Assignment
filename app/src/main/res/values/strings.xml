@@ -54,6 +54,23 @@
     <string name="Text_Subtitle3">CHINESE</string>
     <string name="Text_InsName">Instructor Name</string>
     <string name="Text_Price">Price</string>
+    <string name="add_credit_card">Add Credit Card</string>
+    <string name="name_on_card">Name On Card</string>
+    <string name="credit_card_number">Credit Card Number</string>
+    <string name="expired_date">Expired Date</string>
+    <string name="cvv">CVV</string>
+    <string name="name">Name</string>
+    <string name="mm_yyyy">MM/YY</string>
+    <string name="xxx">XXX</string>
+    <string name="xxxx_xxx_xxxx_xxxx">xxxx-xxx-xxxx-xxxx</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="choose_a_payment_method_to_complete_payment">Choose a payment method to complete payment</string>
+    <string name="successful_created">Successful Created</string>
+    <string name="back">Back</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="thank_you_for_your_purchase">Thank you for your purchase</string>
+    <string name="your_purchase_has_been_recorded">Your purchase has been recorded</string>
+    <string name="please_check_your_email_for_your_e_reciept">Please check your email for your e-reciept.</string>
 
 
 </resources>
