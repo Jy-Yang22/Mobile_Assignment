@@ -31,6 +31,7 @@ public class ClassInfoOverview extends AppCompatActivity {
         setContentView(R.layout.activity_class_info_overview);
 
         classID = getIntent().getStringExtra("cID");
+        category = getIntent().getStringExtra("Category");
 
 
 
