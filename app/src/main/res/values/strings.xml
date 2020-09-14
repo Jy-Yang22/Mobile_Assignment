@@ -53,6 +53,7 @@
     <string name="Text_Subtitle2">MALAY</string>
     <string name="Text_Subtitle3">CHINESE</string>
     <string name="Text_InsName">Instructor Name</string>
+    <string name="Text_Price">Price</string>
 
 
 </resources>

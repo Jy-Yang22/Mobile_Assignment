@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 
 public class ClassInfoOverview extends AppCompatActivity {
-    TextView name,id,description,insName;
+    TextView name,id,description,insName,price;
     ImageView image;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference dataRef,databaseReference;
@@ -40,6 +40,7 @@ public class ClassInfoOverview extends AppCompatActivity {
         image=(ImageView)findViewById(R.id.classInfoImage);
         description=(TextView)findViewById(R.id.classInfoDescription);
         insName=(TextView)findViewById(R.id.classInfoInsName);
+        price=(TextView)findViewById(R.id.classInfoPrice);
 
 
         getProductDetails(classID);
@@ -57,9 +58,10 @@ public class ClassInfoOverview extends AppCompatActivity {
                 {
                     Classes classes = dataSnapshot.getValue(Classes.class);
                     name.setText(classes.getcName());
-                    description.setText(classes.getcDescription());
+                    description.setText(classes.getcInfoDescription());
                     Picasso.get().load(classes.getcImage()).into(image);
                     insName.setText(classes.getcInsName());
+                    price.setText("RM " + classes.getcPrice() );
                 }
             }
 

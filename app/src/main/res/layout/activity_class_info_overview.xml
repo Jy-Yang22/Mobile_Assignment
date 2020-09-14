@@ -96,16 +96,17 @@
             app:layout_constraintTop_toBottomOf="@+id/Text_InsName" />
 
         <TextView
-            android:id="@+id/classInfoTimeSlot"
-            android:layout_width="wrap_content"
+            android:id="@+id/Text_Price"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/Text_TimeSlot"
+            android:paddingHorizontal="16dp"
+            android:text="@string/Text_Price"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/classInfoInsName" />
+            app:layout_constraintTop_toBottomOf="@+id/classInfoInsName" />
 
         <TextView
             android:id="@+id/classInfoPrice"
@@ -115,7 +116,20 @@
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Text_InsName" />
+            app:layout_constraintTop_toBottomOf="@+id/Text_Price" />
+
+        <TextView
+            android:id="@+id/classInfoTimeSlot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/Text_TimeSlot"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/classInfoPrice" />
+
 
 
         <RadioGroup
