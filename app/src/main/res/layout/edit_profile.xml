@@ -53,7 +53,7 @@
         android:layout_marginTop="12sp"
         android:orientation="horizontal">
 
-        <TextView
+        <EditText
             android:id="@+id/profile_birth"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -67,6 +67,16 @@
             android:textColor="#000000"
             android:layout_marginTop="5sp"
             android:singleLine="true" />
+        <Button
+            android:id="@+id/profile_birth_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:textColor="@color/white"
+            android:text="@string/select_date"
+            android:background="@color/colorPrimaryDark"
+            android:layout_weight="3"/>
+
 
     </LinearLayout>
 

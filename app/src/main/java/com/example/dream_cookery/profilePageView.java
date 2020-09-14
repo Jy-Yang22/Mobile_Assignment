@@ -27,18 +27,18 @@ public class profilePageView extends AppCompatActivity {
     }
 
     public void goToProfileDetail(View arg0) {
-        Intent it2 = new Intent(getApplicationContext(), editProfileView.class);
-        startActivity(it2);
+        Intent it1 = new Intent(getApplicationContext(), editProfileView.class);
+        startActivity(it1);
     }
 
     public void goToPurchaseHistory(View arg0) {
-        Intent it3 = new Intent(getApplicationContext(), purchaseHistoryView.class);
-        startActivity(it3);
+        Intent it2 = new Intent(getApplicationContext(), purchaseHistoryView.class);
+        startActivity(it2);
     }
 
     public void goToAboutUs(View arg0) {
-        Intent it4 = new Intent(getApplicationContext(), aboutUsView.class);
-        startActivity(it4);
+        Intent it3 = new Intent(getApplicationContext(), aboutUsView.class);
+        startActivity(it3);
     }
 
 
