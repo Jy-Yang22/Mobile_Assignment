@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +36,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
     String eEmail;
     String eBirthday;
     int ePhone;
+
 
     private EditText mDisplayDate;
     private Button mChooseDate;
@@ -73,6 +75,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                             year,month,day);
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     dialog.show();
+
                 }
             });
 
@@ -97,18 +100,28 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-            String e_Name = prefs.getString("eName","");
+            final String e_Name = prefs.getString("eName","");
             editName.setText(e_Name);
             String e_Email = prefs.getString("eEmail","");
             editEmail.setText(e_Email);
             int e_Phone = prefs.getInt("ePhone", 0);
             editPhone.setText(""+e_Phone);
-            String e_Birthday = prefs.getString("eBirthday","");
+            final String e_Birthday = prefs.getString("eBirthday","");
             resultBirthday.setText(""+e_Birthday);
 
             Save.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
+
+                    if(TextUtils.isEmpty(e_Name))
+                    {
+                        Toast.makeText(editProfileView.this, "Please write your name...", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(TextUtils.isEmpty(e_Birthday))
+                    {
+                        Toast.makeText(editProfileView.this, "Please fill up your birthday date...", Toast.LENGTH_SHORT).show();
+                    }
+
                     eName = editName.getText().toString();
                     eEmail = editEmail.getText().toString();
                     ePhone = Integer.parseInt(editPhone.getText().toString());
@@ -120,6 +133,9 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                     editor.putInt("ePhone",ePhone);
                     editor.putString("eBirthday",eBirthday);
                     editor.apply();
+
+                    //firebase functions
+
                 }
             });
         }
