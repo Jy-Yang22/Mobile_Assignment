@@ -23,14 +23,15 @@ public class ClassInfoOverview extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference dataRef,databaseReference;
     FirebaseAuth mFirebaseAuth;
-    private String productID = "";
+    private String classID = "", category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_info_overview);
 
-        productID = getIntent().getStringExtra("cID");
+        classID = getIntent().getStringExtra("cID");
+        category = getIntent().getStringExtra("Category");
 
 
 
@@ -46,7 +47,7 @@ public class ClassInfoOverview extends AppCompatActivity {
         dataRef =databaseReference.child(classid);
         id.setText(classid);*/
 
-        getProductDetails(productID);
+        getProductDetails(classID);
     }
     /*@Override
     public void onStart() {
@@ -73,7 +74,7 @@ public class ClassInfoOverview extends AppCompatActivity {
 
     private void getProductDetails(String classID)
     {
-        DatabaseReference classRef = FirebaseDatabase.getInstance().getReference("Classes").child("Western");
+        DatabaseReference classRef = FirebaseDatabase.getInstance().getReference("Classes").child(category);
 
         classRef.child(classID).addValueEventListener(new ValueEventListener() {
             @Override

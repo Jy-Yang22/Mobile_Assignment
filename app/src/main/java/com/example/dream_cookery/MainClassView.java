@@ -18,6 +18,7 @@ public class MainClassView extends AppCompatActivity {
     ClassViewFragment classViewFragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    Bundle bundle;
 
 
     //Menu Fragment
@@ -36,10 +37,11 @@ public class MainClassView extends AppCompatActivity {
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.flFragment, classViewFragment).addToBackStack(null).commit();
 
-        Bundle bundle = new Bundle();
+        bundle = new Bundle();
         bundle.putString("mainText", "Western");
 
         classViewFragment.setArguments(bundle);
+
         isClassViewFragmentDisplayed = true;
 
 
@@ -58,6 +60,17 @@ public class MainClassView extends AppCompatActivity {
                     openWesternClassViewFragment();
                 }
 
+            }
+        });
+
+        malaysianText.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                if(!isClassViewFragmentDisplayed && !isMenuFragmentDisplayed)
+                {
+                    openMalaysianClassViewFragment();
+                }
             }
         });
 
@@ -100,14 +113,26 @@ public class MainClassView extends AppCompatActivity {
     }
 
     public void openWesternClassViewFragment() {
-        /*Intent western = new Intent(this, WesternClass.class);
-        startActivity(western);*/
-        ClassViewFragment classViewFragment = new ClassViewFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.flFragment, classViewFragment).addToBackStack(null).commit();
-        Bundle bundle = new Bundle();
+
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, classViewFragment).addToBackStack(null);
+        fragmentTransaction.commit();
+
+        bundle = new Bundle();
         bundle.putString("mainText", "Western");
+
+        classViewFragment.setArguments(bundle);
+        isClassViewFragmentDisplayed = true;
+    }
+
+    public void openMalaysianClassViewFragment()
+    {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, classViewFragment).addToBackStack(null);
+        fragmentTransaction.commit();
+
+        bundle = new Bundle();
+        bundle.putString("mainText", "Malaysian");
 
         classViewFragment.setArguments(bundle);
         isClassViewFragmentDisplayed = true;
