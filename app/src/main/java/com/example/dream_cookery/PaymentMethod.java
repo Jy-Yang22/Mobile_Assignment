@@ -1,14 +1,17 @@
 package com.example.dream_cookery;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +33,7 @@ public class PaymentMethod extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_method);
+
         imageView = findViewById(R.id.ccImg);
         mccNum = findViewById(R.id.ccSavedNum);
         mccDate = findViewById(R.id.ccSavedExp);
@@ -87,4 +91,37 @@ public class PaymentMethod extends AppCompatActivity {
         Intent visa= new Intent(this, AddVisa.class);
         startActivity(visa);
     }
+
+    public void paymentConfirm(View view)
+    {
+        String price = getIntent().getStringExtra("price");
+        String subtitle = getIntent().getStringExtra("subtitle");
+        String timeslot = getIntent().getStringExtra("timeSlot");
+          final AlertDialog.Builder payment = new AlertDialog.Builder(PaymentMethod.this);
+            payment.setTitle("Confirmation");
+            payment.setMessage( "Timeslot : " + timeslot + "\n" +
+                                "Subtitle : " + subtitle + "\n" +
+                                "Price: " + price  );
+
+
+            payment.setPositiveButton("OK", new DialogInterface.OnClickListener()
+            {
+                public void onClick(DialogInterface dialog, int which) {
+
+                    Intent pay = new Intent(getApplicationContext(), SuccessPayment.class);
+                    startActivity(pay);
+                }
+
+            });
+            payment.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+            {
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            payment.show();
+    }
+
+
+
 }

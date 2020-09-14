@@ -99,7 +99,8 @@
         <ImageView
             android:id="@+id/ccImg"
             android:layout_width="74dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:onClick="paymentConfirm"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -143,7 +144,8 @@
             android:id="@+id/ccImg2"
             android:layout_width="74dp"
             android:layout_height="match_parent"
-            android:text="" />
+            android:onClick="paymentConfirm"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
