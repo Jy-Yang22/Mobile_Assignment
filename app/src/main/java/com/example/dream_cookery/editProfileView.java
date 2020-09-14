@@ -34,6 +34,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
     TextView resultBirthday;
     String eName;
     String eBirthday;
+    String eGender;
     int ePhone;
 
 
@@ -55,6 +56,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             spin.setAdapter(aa);
+            eGender = spin.getSelectedItem().toString();
 
             //display date to let user choose
             mDisplayDate = (EditText)findViewById(R.id.profile_birth);
@@ -117,16 +119,27 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                     {
                         Toast.makeText(editProfileView.this, "Please fill up your birthday date...", Toast.LENGTH_SHORT).show();
                     }
+                    else if(ePhone == 0)
+                    {
+                        Toast.makeText(editProfileView.this, "Please fill up your numer...", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        eName = editName.getText().toString();
+                        ePhone = Integer.parseInt(editPhone.getText().toString());
+                        eBirthday = mDisplayDate.getText().toString();
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putString("eName",eName);
+                        editor.putInt("ePhone",ePhone);
+                        editor.putString("eBirthday",eBirthday);
+                        editor.apply();
 
-                    eName = editName.getText().toString();
-                    ePhone = Integer.parseInt(editPhone.getText().toString());
-                    eBirthday = mDisplayDate.getText().toString();
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("eName",eName);
-                    editor.putInt("ePhone",ePhone);
-                    editor.putString("eBirthday",eBirthday);
-                    editor.apply();
+
+                    }
+
+
+
 
                     //firebase functions
 
