@@ -30,6 +30,8 @@ public class ClassViewFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+
+    public static String mainTextString;
     public ClassViewFragment() {
         // Required empty public constructor
     }
@@ -42,17 +44,10 @@ public class ClassViewFragment extends Fragment {
 
 
         View rootView = inflater.inflate(R.layout.fragment_class_view, container, false);
-        String mainTextString = getArguments().getString("mainText");
+
 
         //set text
         mainText = rootView.findViewById(R.id.class_type_main);
-
-        if(getArguments().getString("mainText")== "Western")
-        {
-            ClassesRef = FirebaseDatabase.getInstance().getReference("Classes").child("Western");
-            Log.d(getArguments().getString("mainText"), "lol");
-            mainText.setText(mainTextString);
-        }
 
         recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -67,6 +62,21 @@ public class ClassViewFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        if(getArguments().getString("mainText")== "Western")
+        {
+            mainTextString = getArguments().getString("mainText");
+            ClassesRef = FirebaseDatabase.getInstance().getReference("Classes").child(mainTextString);
+            Log.d("Hello", "Western");
+            mainText.setText(mainTextString);
+        }
+        else if(getArguments().get("mainText") == "Malaysian")
+        {
+            mainTextString = getArguments().getString("mainText");
+            ClassesRef = FirebaseDatabase.getInstance().getReference("Classes").child(mainTextString);
+            Log.d("Hello", "Malaysian");
+            mainText.setText(mainTextString);
+        }
 
         FirebaseRecyclerOptions<Classes> options =
                 new FirebaseRecyclerOptions.Builder<Classes>()
@@ -88,6 +98,7 @@ public class ClassViewFragment extends Fragment {
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity().getApplicationContext(), ClassInfoOverview.class);
                                 intent.putExtra("cID", classes.getcID());
+                                intent.putExtra("Category", mainTextString);
                                 startActivity(intent);
                             }
                         });
