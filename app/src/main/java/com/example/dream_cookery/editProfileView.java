@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,12 +30,15 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
     private static final String TAG = editProfileView.class.getSimpleName();
 
     Button Save;
-    EditText editName, editEmail, editPhone;
+    EditText editName, editPhone;
+    TextView resultBirthday;
     String eName;
-    String eEmail;
+    String eBirthday;
     int ePhone;
 
-    private TextView mDisplayDate;
+
+    private EditText mDisplayDate;
+    private Button mChooseDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
         @Override
@@ -43,34 +47,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
             super.onCreate(savedInstanceState);
             setContentView(R.layout.edit_profile);
 
-            Save = (Button)findViewById(R.id.save_Button);
-            editName = (EditText)findViewById(R.id.profile_name);
-            editEmail = (EditText)findViewById(R.id.profile_email);
-            editPhone = (EditText)findViewById(R.id.profile_phone);
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-            String e_Name = prefs.getString("eName","");
-            editName.setText(e_Name);
-            String e_Email = prefs.getString("eEmail","");
-            editEmail.setText(e_Email);
-            int e_Phone = prefs.getInt("ePhone", 0);
-            editPhone.setText(""+e_Phone);
-
-            Save.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    eName = editName.getText().toString();
-                    eEmail = editEmail.getText().toString();
-                    ePhone = Integer.parseInt(editPhone.getText().toString());
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("eName",eName);
-                    editor.putString("eEmail",eEmail);
-                    editor.putInt("ePhone", ePhone);
-                    editor.apply();
-                }
-            });
+            //spinner for gender
             Spinner spin = (Spinner) findViewById(R.id.gender);
             spin.setOnItemSelectedListener(this);
 
@@ -79,8 +56,10 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
 
             spin.setAdapter(aa);
 
-            mDisplayDate = (TextView)findViewById(R.id.profile_birth);
-            mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            //display date to let user choose
+            mDisplayDate = (EditText)findViewById(R.id.profile_birth);
+            mChooseDate = (Button)findViewById(R.id.profile_birth_button);
+            mChooseDate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Calendar cal = Calendar.getInstance();
@@ -95,6 +74,7 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                             year,month,day);
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     dialog.show();
+
                 }
             });
 
@@ -108,6 +88,50 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
                     mDisplayDate.setText(date);
                 }
             };
+
+            //shared preferences
+            Save = (Button)findViewById(R.id.save_Button);
+            editName = (EditText)findViewById(R.id.profile_name);
+            editPhone = (EditText)findViewById(R.id.profile_phone);
+            resultBirthday = (TextView) findViewById(R.id.profile_birth);
+
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+            final String e_Name = prefs.getString("eName","");
+            editName.setText(e_Name);
+            int e_Phone = prefs.getInt("ePhone", 0);
+            editPhone.setText(""+e_Phone);
+            final String e_Birthday = prefs.getString("eBirthday","");
+            resultBirthday.setText(""+e_Birthday);
+
+            Save.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+
+                    if(TextUtils.isEmpty(e_Name))
+                    {
+                        Toast.makeText(editProfileView.this, "Please write your name...", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(TextUtils.isEmpty(e_Birthday))
+                    {
+                        Toast.makeText(editProfileView.this, "Please fill up your birthday date...", Toast.LENGTH_SHORT).show();
+                    }
+
+                    eName = editName.getText().toString();
+                    ePhone = Integer.parseInt(editPhone.getText().toString());
+                    eBirthday = mDisplayDate.getText().toString();
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("eName",eName);
+                    editor.putInt("ePhone",ePhone);
+                    editor.putString("eBirthday",eBirthday);
+                    editor.apply();
+
+                    //firebase functions
+
+                }
+            });
         }
 
 
@@ -120,11 +144,5 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
     public void onNothingSelected(AdapterView<?> arg0)
     {
     }
-
-    /*public void BackToProfile(View arg0) {
-        Intent it1 = new Intent(getApplicationContext(), profilePageView.class);
-        startActivity(it1);
-        Toast.makeText(getApplicationContext(),"Edit successful",Toast.LENGTH_SHORT).show();
-    }*/
-
+    
 }
