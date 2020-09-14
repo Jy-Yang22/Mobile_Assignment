@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.dream_cookery"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -46,7 +46,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.braintreepayments:card-form:5.0.0' //credit-card form
 }
 
 apply plugin: 'com.google.gms.google-services'

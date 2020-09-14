@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
+
+    <TextView
+        android:id="@+id/payment_methods_textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_methods"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <TextView
+        android:id="@+id/payment_method_textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_a_payment_method_to_complete_payment"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.167" />
+
+    <ImageButton
+        android:id="@+id/visaButton"
+        android:layout_width="87dp"
+        android:layout_height="62dp"
+        android:background="@android:color/transparent"
+        android:onClick="AddVisa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.932"
+        app:srcCompat="@drawable/visa" />
+
+    <ImageButton
+        android:id="@+id/masterButton"
+        android:layout_width="88dp"
+        android:layout_height="61dp"
+        android:background="@android:color/transparent"
+        android:onClick="AddMaster"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931"
+        app:srcCompat="@drawable/master" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="315dp"
+        android:layout_height="69dp"
+        android:onClick="AddCC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.796"
+        app:srcCompat="@drawable/payment" />
+
+    <ImageButton
+        android:id="@+id/fpxButton"
+        android:layout_width="291dp"
+        android:layout_height="67dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641"
+        app:srcCompat="@drawable/fpx" />
+
+    <LinearLayout
+        android:id="@+id/cclist1"
+        android:layout_width="315dp"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284">
+
+        <ImageView
+            android:id="@+id/ccImg"
+            android:layout_width="74dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ccSavedNum"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="bottom"
+                android:paddingHorizontal="16dp"
+                android:textAlignment="gravity"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/ccSavedExp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingHorizontal="16dp"
+                android:textAlignment="gravity"
+                android:textColor="@android:color/black" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cclist2"
+        android:layout_width="315dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/fpxButton"
+        app:layout_constraintEnd_toEndOf="@+id/cclist1"
+        app:layout_constraintStart_toStartOf="@+id/cclist1"
+        app:layout_constraintTop_toBottomOf="@+id/cclist1">
+
+
+        <ImageView
+            android:id="@+id/ccImg2"
+            android:layout_width="74dp"
+            android:layout_height="match_parent"
+            android:text="" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ccSavedNum2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textAlignment="gravity"
+                android:paddingHorizontal="16dp"
+                android:gravity="bottom"
+                android:textColor="@color/bt_black" />
+
+            <TextView
+                android:id="@+id/ccSavedExp2"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="16dp"
+                android:layout_height="40dp"
+                android:textColor="@color/bt_black" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
