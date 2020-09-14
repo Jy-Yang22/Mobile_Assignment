@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dream_cookery.Models.Classes;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +40,7 @@ public class profilePageView extends AppCompatActivity {
         fBaseAuth = FirebaseAuth.getInstance();
         currentID = fBaseAuth.getCurrentUser().getUid();
         nameText = findViewById(R.id.customerName);
+
 
 
 
@@ -97,6 +101,20 @@ public class profilePageView extends AppCompatActivity {
         startActivity(it3);
     }
 
+
+    public void logOut(View arg0) {
+
+        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("stayLogged","false");
+        editor.apply();
+
+        fBaseAuth.signOut();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
 
 }
 
