@@ -43,6 +43,7 @@ public class AddVisa extends AppCompatActivity {
         final String ccCvv = cvv.getText().toString();
         final String ccName = cardname.getText().toString();
 
+
         if (ccName == "EMPTY")
             Toast.makeText(AddVisa.this, "Please fill up your credit card name.", Toast.LENGTH_SHORT).show();
         else if (ccNum.isEmpty() || cardnum.length() != 16 )
@@ -86,7 +87,7 @@ public class AddVisa extends AppCompatActivity {
         String userID = fBaseAuth.getCurrentUser().getUid();
         char first = ccNum.charAt(0);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Users").child("userID").child("CC_Info");
+        DatabaseReference myRef = database.getReference("Users").child(userID).child("CC_Info");
         if (first == '2' || first == '5') {
             myRef.child("mastercard").child("ccname").setValue(ccName);
             myRef.child("mastercard").child("ccNum").setValue(ccNum);
