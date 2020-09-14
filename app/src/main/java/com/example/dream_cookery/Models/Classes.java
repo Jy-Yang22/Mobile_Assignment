@@ -2,7 +2,7 @@ package com.example.dream_cookery.Models;
 
 public class Classes {
 
-    private String cName, cDescription, cImage, cCategory, cPrice;
+    private String cName, cDescription, cImage, cCategory, cPrice, cID;
 
     public Classes()
     {
@@ -37,6 +37,10 @@ public class Classes {
         return cCategory;
     }
 
+    public String getcID() {
+        return cID;
+    }
+
     public void setcName(String cName) {
         this.cName = cName;
     }
@@ -55,5 +59,9 @@ public class Classes {
 
     public void setcCategory(String cCategory) {
         this.cCategory = cCategory;
+    }
+
+    public void setcID(String cID) {
+        this.cID = cID;
     }
 }

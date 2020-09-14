@@ -1,5 +1,6 @@
 package com.example.dream_cookery;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -48,7 +49,7 @@ public class ClassViewFragment extends Fragment {
 
         if(getArguments().getString("mainText")== "Western")
         {
-            ClassesRef = FirebaseDatabase.getInstance().getReference().child("Western");
+            ClassesRef = FirebaseDatabase.getInstance().getReference("Classes").child("Western");
             Log.d(getArguments().getString("mainText"), "lol");
             mainText.setText(mainTextString);
         }
@@ -75,12 +76,21 @@ public class ClassViewFragment extends Fragment {
         FirebaseRecyclerAdapter<Classes, ClassViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Classes, ClassViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull ClassViewHolder classViewHolder, int i, @NonNull Classes classes)
+                    protected void onBindViewHolder(@NonNull ClassViewHolder classViewHolder, int i, @NonNull final Classes classes)
                     {
                         classViewHolder.txtClassName.setText(classes.getcName());
                         classViewHolder.txtClassDescription.setText(classes.getcDescription());
                         classViewHolder.txtClassPrice.setText("Price = RM " + classes.getcPrice() );
                         Picasso.get().load(classes.getcImage()).into(classViewHolder.imageView);
+
+                        classViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity().getApplicationContext(), ClassInfoOverview.class);
+                                intent.putExtra("cID", classes.getcID());
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull
