@@ -54,7 +54,7 @@ public class ClassViewFragment extends Fragment {
 
         recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext().getApplicationContext()));
 
 
         mainText.setText(mainTextString);
@@ -75,7 +75,7 @@ public class ClassViewFragment extends Fragment {
                     {
                         classViewHolder.txtClassName.setText(classes.getcName());
                         classViewHolder.txtClassDescription.setText(classes.getcDescription());
-                        classViewHolder.txtClassPrice.setText("Price = RM " + String.format(".2f", classes.getcPrice()) );
+                        classViewHolder.txtClassPrice.setText("Price = RM " + classes.getcPrice() );
                         Picasso.get().load(classes.getcImage()).into(classViewHolder.imageView);
                     }
 

@@ -2,9 +2,8 @@ package com.example.dream_cookery.Models;
 
 public class Classes {
 
-    private String cName, cDescription, cImage, cCategory;
-    double cPrice;
-    public Classes(String cName, String cDescription, double cPrice, String cImage, String cCategory) {
+    private String cName, cDescription, cImage, cCategory, cPrice;
+    public Classes(String cName, String cDescription, String cPrice, String cImage, String cCategory) {
         this.cName = cName;
         this.cDescription = cDescription;
         this.cPrice = cPrice;
@@ -20,7 +19,7 @@ public class Classes {
         return cDescription;
     }
 
-    public double getcPrice() {
+    public String getcPrice() {
         return cPrice;
     }
 
@@ -40,7 +39,7 @@ public class Classes {
         this.cDescription = cDescription;
     }
 
-    public void setcPrice(double cPrice) {
+    public void setcPrice(String cPrice) {
         this.cPrice = cPrice;
     }
 

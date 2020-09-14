@@ -47,12 +47,12 @@ public class MainClassView extends AppCompatActivity {
         westernText = findViewById(R.id.western_text);
         menuIcon = findViewById(R.id.menuIcon);
 
-        ClassesRef = FirebaseDatabase.getInstance().getReference().child("Classes");
+        /*ClassesRef = FirebaseDatabase.getInstance().getReference().child("Classes");
 
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));*/
 
         westernText.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -134,37 +134,6 @@ public class MainClassView extends AppCompatActivity {
     {
         savedInstanceState.putBoolean(STATE_FRAGMENT, isMenuFragmentDisplayed);
         super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        FirebaseRecyclerOptions<Classes> options =
-                new FirebaseRecyclerOptions.Builder<Classes>().setQuery(ClassesRef, Classes.class).build();
-
-        FirebaseRecyclerAdapter<Classes, ClassViewHolder> adapter =
-                new FirebaseRecyclerAdapter<Classes, ClassViewHolder>(options) {
-                    @Override
-                    protected void onBindViewHolder(@NonNull ClassViewHolder classViewHolder, int i, @NonNull Classes classes)
-                    {
-                        classViewHolder.txtClassName.setText(classes.getcName());
-                        classViewHolder.txtClassDescription.setText(classes.getcDescription());
-                        classViewHolder.txtClassPrice.setText("Price = RM " + String.format(".2f", classes.getcPrice()) );
-                        Picasso.get().load(classes.getcImage()).into(classViewHolder.imageView);
-                    }
-
-                    @NonNull
-                    @Override
-                    public ClassViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.classes_layout, parent, false);
-                        ClassViewHolder holder = new ClassViewHolder(view);
-                        return holder;
-                    }
-                };
-        recyclerView.setAdapter(adapter);
-        adapter.startListening();
-
     }
 
 
