@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,14 +38,18 @@ public class profilePageView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        ImageButton backPress = findViewById(R.id.backProfile);
+        backPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(profilePageView.this, MainClassView.class);
+                startActivity(intent);
+            }
+        });
+
         fBaseAuth = FirebaseAuth.getInstance();
         currentID = fBaseAuth.getCurrentUser().getUid();
         nameText = findViewById(R.id.customerName);
-
-
-
-
-
 
     }
 

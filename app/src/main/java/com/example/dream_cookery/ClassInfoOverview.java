@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -40,7 +41,14 @@ public class ClassInfoOverview extends AppCompatActivity {
         classID = getIntent().getStringExtra("cID");
         category = getIntent().getStringExtra("Category");
 
-
+        ImageButton backPress = findViewById(R.id.backClassInfo);
+        backPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassInfoOverview.this, MainClassView.class);
+                startActivity(intent);
+            }
+        });
 
         id=(TextView)findViewById(R.id.classInfoID);
         name=(TextView)findViewById(R.id.classInfoName);

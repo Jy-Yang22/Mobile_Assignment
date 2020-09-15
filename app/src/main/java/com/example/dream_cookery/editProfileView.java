@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +54,15 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
         {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.edit_profile);
+
+            ImageButton backPress = findViewById(R.id.backEditProfile);
+            backPress.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(editProfileView.this, profilePageView.class);
+                    startActivity(intent);
+                }
+            });
 
             //firebase
             fBaseAuth = FirebaseAuth.getInstance();

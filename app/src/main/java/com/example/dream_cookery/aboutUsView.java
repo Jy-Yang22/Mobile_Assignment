@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class aboutUsView extends AppCompatActivity {
@@ -14,6 +15,15 @@ public class aboutUsView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
+
+        ImageButton backPress = findViewById(R.id.backAboutUs);
+        backPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(aboutUsView.this, profilePageView.class);
+                startActivity(intent);
+            }
+        });
 
 
         ImageView img = (ImageView) findViewById(R.id.facebook);
