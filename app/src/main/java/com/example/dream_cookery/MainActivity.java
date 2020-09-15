@@ -114,10 +114,10 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast.makeText(MainActivity.this, "You are logged in...", Toast.LENGTH_SHORT);
                     //remove to remember me
-                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    /*SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("stayLogged","false");
-                    editor.apply();
+                    editor.apply();*/
                     openMainClassView();
                 }
                 else

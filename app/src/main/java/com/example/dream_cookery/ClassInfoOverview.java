@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -12,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dream_cookery.Models.Classes;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,9 +27,6 @@ public class ClassInfoOverview extends AppCompatActivity {
     RadioButton timeslot1,timeslot2,timeslot3,timeslot4,english,malay,chinese;
     TextView name,id,description,insName,price;
     ImageView image;
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference dataRef,databaseReference;
-    FirebaseAuth mFirebaseAuth;
     private String classID = "", category;
 
     @Override
@@ -40,7 +37,14 @@ public class ClassInfoOverview extends AppCompatActivity {
         classID = getIntent().getStringExtra("cID");
         category = getIntent().getStringExtra("Category");
 
-
+        ImageButton backPress = findViewById(R.id.backClassInfo);
+        backPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassInfoOverview.this, MainClassView.class);
+                startActivity(intent);
+            }
+        });
 
         id=(TextView)findViewById(R.id.classInfoID);
         name=(TextView)findViewById(R.id.classInfoName);
@@ -56,7 +60,6 @@ public class ClassInfoOverview extends AppCompatActivity {
         english=findViewById(R.id.firstSubtitleLanguage);
         malay=findViewById(R.id.secondSubtitleLanguage);
         chinese=findViewById(R.id.thirdSubtitleLanguage);
-
 
 
 

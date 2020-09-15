@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ClassInfoOverview">
 
+
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,6 +18,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/backClassInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            app:srcCompat="@drawable/abc_vector_test" />
 
         <TextView
             android:id="@+id/classInfoID"

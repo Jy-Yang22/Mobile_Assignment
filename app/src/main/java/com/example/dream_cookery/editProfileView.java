@@ -15,18 +15,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 
 public class editProfileView extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String[] gender = {"Male", "Female"};
-
+    FirebaseAuth fBaseAuth;
+    String currentID;
     private static final String TAG = editProfileView.class.getSimpleName();
 
     Button Save;
@@ -48,6 +54,19 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
         {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.edit_profile);
+
+            ImageButton backPress = findViewById(R.id.backEditProfile);
+            backPress.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(editProfileView.this, profilePageView.class);
+                    startActivity(intent);
+                }
+            });
+
+            //firebase
+            fBaseAuth = FirebaseAuth.getInstance();
+            currentID = fBaseAuth.getCurrentUser().getUid();
 
             //spinner for gender
             final Spinner spin = (Spinner) findViewById(R.id.gender);
@@ -122,36 +141,27 @@ public class editProfileView extends AppCompatActivity implements AdapterView.On
             Save.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-
-                    if(TextUtils.isEmpty(e_Name))
-                    {
-                        Toast.makeText(editProfileView.this, "Please write your name...", Toast.LENGTH_SHORT).show();
-                    }
-                    else if(TextUtils.isEmpty(e_Birthday))
-                    {
-                        Toast.makeText(editProfileView.this, "Please fill up your birthday date...", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        eName = editName.getText().toString();
-                        ePhone = Integer.parseInt(editPhone.getText().toString());
-                        eBirthday = mDisplayDate.getText().toString();
-                        eGender = spin.getSelectedItem().toString();
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString("eName",eName);
-                        editor.putInt("ePhone",ePhone);
-                        editor.putString("eBirthday",eBirthday);
-                        editor.putString("eGender",eGender);
-                        editor.apply();
-
-
-                    }
-
-
+                    eName = editName.getText().toString();
+                    ePhone = Integer.parseInt(editPhone.getText().toString());
+                    eBirthday = mDisplayDate.getText().toString();
+                    eGender = spin.getSelectedItem().toString();
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(editProfileView.this);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("eName",eName);
+                    editor.putInt("ePhone",ePhone);
+                    editor.putString("eBirthday",eBirthday);
+                    editor.putString("eGender",eGender);
+                    editor.apply();
 
 
                     //firebase functions
+                    FirebaseDatabase fDatabase = FirebaseDatabase.getInstance();
+                    DatabaseReference fReference;
+                    fReference = fDatabase.getReference("Users").child(currentID);
+                    fReference.child("username").setValue(eName);
+                    fReference.child("phoneNumber").setValue(ePhone);
+                    fReference.child("gender").setValue(eGender);
+                    fReference.child("birthday").setValue(eBirthday);
 
                 }
             });
