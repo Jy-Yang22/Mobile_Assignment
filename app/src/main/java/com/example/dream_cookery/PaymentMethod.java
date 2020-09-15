@@ -25,9 +25,10 @@ import com.squareup.picasso.Picasso;
 public class PaymentMethod extends AppCompatActivity {
     final FirebaseAuth fBaseAuth = FirebaseAuth.getInstance();
     String userID = fBaseAuth.getCurrentUser().getUid();
+    String cClass,cSub,cTime,cPri;
     ImageView imageView, imageView2, imageView3, imageView4;
-    TextView mccNum, mccDate, vccNum, vccDate;
-    LinearLayout list1,list2;
+    TextView mccNum, mccDate, vccNum, vccDate, cClassName, cSubtitle, cTimeSlot, cPrice;
+    LinearLayout list1,list2,list3;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference("Users").child(userID);
     int total;
@@ -49,6 +50,12 @@ public class PaymentMethod extends AppCompatActivity {
         className = getIntent().getStringExtra("className");
         list1 = findViewById(R.id.cclist1);
         list2 = findViewById(R.id.cclist2);
+        list3 = findViewById(R.id.list3);
+        cClassName = findViewById(R.id.cartclass);
+        cSubtitle = findViewById(R.id.cartsub);
+        cPrice = findViewById(R.id.cartprice);
+        cTimeSlot = findViewById(R.id.carttime);
+
     }
 
     @Override
@@ -65,6 +72,28 @@ public class PaymentMethod extends AppCompatActivity {
                 String vcNum = dataSnapshot.child("CC_Info").child("visa").child("ccNum").getValue(String.class);
                 String vcDate = dataSnapshot.child("CC_Info").child("visa").child("ExpDate").getValue(String.class);
 
+                if(className!=null)
+                {
+                    databaseReference.child("cart").child("classname").setValue(className);
+                    databaseReference.child("cart").child("subtitle").setValue(subtitle);
+                    databaseReference.child("cart").child("timeslot").setValue(timeslot);
+                    databaseReference.child("cart").child("price").setValue(price);
+                }
+
+                cClass = dataSnapshot.child("cart").child("classname").getValue(String.class);
+                cSub = dataSnapshot.child("cart").child("subtitle").getValue(String.class);
+                cTime = dataSnapshot.child("cart").child("timeslot").getValue(String.class);
+                cPri = dataSnapshot.child("cart").child("price").getValue(String.class);
+
+                if(cClass!=null)
+                {
+                    list1.setVisibility(View.VISIBLE);
+                    cClassName.setText("Class : " + cClass);
+                    cSubtitle.setText("Subtitle : "+ cSub);
+                    cPrice.setText("Price : " + cPri);
+                    cTimeSlot.setText("Timeslot : "+ cTime);
+
+                }
                 if(mcNum != null )
                 {
                     list1.setVisibility(View.VISIBLE);
@@ -112,10 +141,10 @@ public class PaymentMethod extends AppCompatActivity {
 
           final AlertDialog.Builder payment = new AlertDialog.Builder(PaymentMethod.this);
             payment.setTitle("Confirmation");
-            payment.setMessage( "Class : " + className + "\n" +
-                                "Timeslot : " + timeslot + "\n" +
-                                "Subtitle : " + subtitle + "\n" +
-                                "Price: " + price + "\n" +
+            payment.setMessage( "Class : " + cClass + "\n" +
+                                "Timeslot : " + cTime + "\n" +
+                                "Subtitle : " + cSub + "\n" +
+                                "Price: " + cPri + "\n" +
                     "Click OK to confirm, or Cancel to return:");
 
 

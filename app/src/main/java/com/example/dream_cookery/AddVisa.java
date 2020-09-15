@@ -100,4 +100,11 @@ public class AddVisa extends AppCompatActivity {
             myRef.child("visa").child("cvv").setValue(ccCvv);
         }
     }
+
+    public void mainMenu(View view)
+    {
+        Intent menu = new Intent(this, MainClassView.class);
+        startActivity(menu);
+    }
+
 }

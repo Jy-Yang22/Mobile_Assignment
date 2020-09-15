@@ -40,10 +40,10 @@
         android:onClick="AddVisa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946"
+        app:layout_constraintVertical_bias="0.973"
         app:srcCompat="@drawable/visa" />
 
     <ImageButton
@@ -54,35 +54,23 @@
         android:onClick="AddMaster"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948"
+        app:layout_constraintVertical_bias="0.973"
         app:srcCompat="@drawable/master" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="315dp"
         android:layout_height="69dp"
+        android:layout_marginBottom="84dp"
         android:onClick="AddCC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fpxButton"
-        app:layout_constraintVertical_bias="0.3"
         app:srcCompat="@drawable/payment" />
-
-    <ImageButton
-        android:id="@+id/fpxButton"
-        android:layout_width="310dp"
-        android:layout_height="67dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.608"
-        app:srcCompat="@drawable/fpx" />
 
     <LinearLayout
         android:id="@+id/cclist1"
@@ -91,7 +79,7 @@
         android:layout_marginTop="15dp"
         android:background="#FFFFFF"
         android:orientation="horizontal"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -137,11 +125,9 @@
         android:layout_width="315dp"
         android:layout_height="80dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="12dp"
         android:background="@color/bt_white"
         android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/fpxButton"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/cclist1"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="@+id/cclist1"
@@ -192,6 +178,49 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.006"
         app:srcCompat="@drawable/abc_vector_test" />
+
+    <LinearLayout
+        android:id="@+id/list3"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cclist2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/cartclass"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Class:"
+            android:textColor="@color/bt_black" />
+
+        <TextView
+            android:id="@+id/carttime"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Time: "
+            android:textColor="@color/bt_black" />
+
+        <TextView
+            android:id="@+id/cartsub"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Subtitle"
+            android:textColor="@color/bt_black" />
+
+        <TextView
+            android:id="@+id/cartprice"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Price"
+            android:textColor="@color/bt_black" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
