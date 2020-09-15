@@ -26,6 +26,7 @@
         <activity android:name=".AddVisa" />
         <activity android:name=".SuccessAddedCard" />
         <activity android:name=".SuccessPayment" />
+        <activity android:name=".purchaseHistoryView"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

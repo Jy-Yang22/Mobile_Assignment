@@ -38,6 +38,15 @@ public class profilePageView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        TextView purchaseHistory = findViewById(R.id.purchase_history_text);
+        purchaseHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(profilePageView.this, purchaseHistoryView.class);
+                startActivity(intent);
+            }
+        });
+
         ImageButton backPress = findViewById(R.id.backProfile);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override

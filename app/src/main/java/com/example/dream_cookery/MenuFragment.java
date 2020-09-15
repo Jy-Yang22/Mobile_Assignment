@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MenuFragment extends Fragment {
 
-    private TextView homeText, profileText;
+    private TextView homeText, profileText, classSchedule;
 
 
     public MenuFragment() {
@@ -23,6 +23,15 @@ public class MenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_menu, container, false);
+
+        classSchedule = rootView.findViewById(R.id.class_schedule);
+        classSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), purchaseHistoryView.class);
+                startActivity(intent);
+            }
+        });
 
         homeText = rootView.findViewById(R.id.home);
         homeText.setOnClickListener(new View.OnClickListener() {
