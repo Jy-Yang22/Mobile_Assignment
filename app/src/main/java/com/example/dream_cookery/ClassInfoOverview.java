@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dream_cookery.Models.Classes;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,9 +26,6 @@ public class ClassInfoOverview extends AppCompatActivity {
     RadioButton timeslot1,timeslot2,timeslot3,timeslot4,english,malay,chinese;
     TextView name,id,description,insName,price;
     ImageView image;
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference dataRef,databaseReference;
-    FirebaseAuth mFirebaseAuth;
     private String classID = "", category;
 
     @Override
@@ -56,7 +52,6 @@ public class ClassInfoOverview extends AppCompatActivity {
         english=findViewById(R.id.firstSubtitleLanguage);
         malay=findViewById(R.id.secondSubtitleLanguage);
         chinese=findViewById(R.id.thirdSubtitleLanguage);
-
 
 
 
