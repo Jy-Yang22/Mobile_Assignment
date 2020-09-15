@@ -97,6 +97,11 @@ public class profilePageView extends AppCompatActivity {
         startActivity(it3);
     }
 
+    public void paymentmethod(View view)
+    {
+        Intent payment = new Intent(this, PaymentMethod.class);
+        startActivity(payment);
+    }
 
 }
 

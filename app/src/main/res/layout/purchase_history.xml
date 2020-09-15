@@ -1,53 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grad">
+  >
+
 
     <TextView
-        android:id="@+id/current_bill_text"
+        android:id="@+id/Purchase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/current_bill"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/purchase_history"
+        android:textSize="30sp"
+        app:fontFamily="@font/modern_antiqua"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/purchase_history_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
-        android:text="@string/purchase_history"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="310dp"
-        android:layout_height="184dp"
-        android:background="@drawable/box"
-        android:gravity="center"
-        android:text="@string/hello"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/PurchaseHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_bill_text"
-        app:layout_constraintVertical_bias="0.097">
-
-
-    </TextView>
+        app:layout_constraintTop_toBottomOf="@+id/Purchase" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

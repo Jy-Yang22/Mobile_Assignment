@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@color/grey">
 
     <TextView
         android:id="@+id/payment_methods_textView1"
@@ -13,12 +13,13 @@
         android:text="@string/payment_methods"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/payment_method_textView2"
@@ -26,11 +27,12 @@
         android:layout_height="wrap_content"
         android:text="@string/choose_a_payment_method_to_complete_payment"
         android:textColor="@android:color/black"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintTop_toBottomOf="@+id/payment_methods_textView1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/visaButton"
@@ -40,10 +42,10 @@
         android:onClick="AddVisa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946"
+        app:layout_constraintVertical_bias="0.987"
         app:srcCompat="@drawable/visa" />
 
     <ImageButton
@@ -54,42 +56,43 @@
         android:onClick="AddMaster"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948"
+        app:layout_constraintVertical_bias="0.99"
         app:srcCompat="@drawable/master" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="315dp"
         android:layout_height="69dp"
+        android:layout_marginTop="9dp"
         android:onClick="AddCC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fpxButton"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.993"
         app:srcCompat="@drawable/payment" />
 
     <ImageButton
         android:id="@+id/fpxButton"
-        android:layout_width="310dp"
+        android:layout_width="291dp"
         android:layout_height="67dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.608"
+        app:layout_constraintTop_toBottomOf="@+id/cclist2"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/fpx" />
 
     <LinearLayout
         android:id="@+id/cclist1"
-        android:layout_width="315dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="15dp"
-        android:background="#FFFFFF"
+        android:layout_width="301dp"
+        android:layout_height="72dp"
+        android:background="@color/white"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +100,7 @@
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/payment_method_textView2"
-        app:layout_constraintVertical_bias="0.04000002">
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/ccImg"
@@ -134,14 +137,12 @@
 
     <LinearLayout
         android:id="@+id/cclist2"
-        android:layout_width="315dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/bt_white"
+        android:layout_width="301dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
         android:orientation="horizontal"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/fpxButton"
         app:layout_constraintEnd_toEndOf="@+id/cclist1"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="@+id/cclist1"

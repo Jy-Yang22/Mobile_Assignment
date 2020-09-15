@@ -123,6 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
                     String userID;
+                    int total = 0;
                     userID = fBaseAuth.getCurrentUser().getUid();
                     FirebaseDatabase fDatabase = FirebaseDatabase.getInstance();
                     DatabaseReference fReference;
@@ -131,6 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
                     fReference.child("username").setValue(username);
                     fReference.child("email").setValue(email);
                     fReference.child("phoneNumber").setValue(phoneNum);
+                    fReference.child("total").setValue(total);
 
                     //shared preferences
                     SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);

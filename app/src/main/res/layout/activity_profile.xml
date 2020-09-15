@@ -108,7 +108,8 @@
                     android:fontFamily="sans-serif-light"
                     android:text="@string/payment_method"
                     android:textColor="#000000"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    android:onClick="paymentmethod"/>
 
                 <View
                     android:layout_width="match_parent"

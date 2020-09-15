@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/splash_screen"
     tools:context=".AddVisa">
 
     <TextView
@@ -13,24 +13,24 @@
         android:layout_height="wrap_content"
         android:text="@string/add_credit_card"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/save_button"
-        android:layout_width="276dp"
-        android:layout_height="62dp"
+        android:layout_width="261dp"
+        android:layout_height="53dp"
         android:onClick="onClickShowAlert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvv_box"
-        app:layout_constraintVertical_bias="0.591"
+        app:layout_constraintVertical_bias="0.75"
         app:srcCompat="@drawable/save" />
 
     <TextView
@@ -45,7 +45,7 @@
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
@@ -93,7 +93,6 @@
         android:id="@+id/cc_name_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@drawable/cardbox"
         android:ems="10"
         android:hint="@string/name"
@@ -103,13 +102,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.009" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.braintreepayments.cardform.view.ExpirationDateEditText
         android:id="@+id/expired_date_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@drawable/cvv_box"
         android:ems="10"
         android:hint="@string/mm_yyyy"
@@ -125,7 +123,6 @@
         android:id="@+id/cvv_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@drawable/cvv_box"
         android:ems="10"
         android:hint="@string/xxx"
@@ -141,7 +138,6 @@
         android:id="@+id/cc_number_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@drawable/cardbox"
         android:ems="10"
         android:hint="@string/xxxx_xxx_xxxx_xxxx"
