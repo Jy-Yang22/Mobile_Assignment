@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "987905242424-f06d0o4cbq41p6r7311i6kjhcp5mnf5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dream_cookery",
+            "certificate_hash": "60eee2d53e6666fc18f179477b32750ca1d0c4a3"
+          }
+        },
+        {
           "client_id": "987905242424-vhu8a8bl5mk7cfa2elkmsv6d1p6ol21q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
