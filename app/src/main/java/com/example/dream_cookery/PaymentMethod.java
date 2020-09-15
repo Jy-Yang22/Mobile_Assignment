@@ -31,6 +31,7 @@ public class PaymentMethod extends AppCompatActivity {
     LinearLayout list1,list2,list3;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference("Users").child(userID);
+    DatabaseReference getCart = firebaseDatabase.getReference("Users").child(userID);
     int total;
     String price, subtitle, timeslot, className;
     @Override
@@ -72,14 +73,6 @@ public class PaymentMethod extends AppCompatActivity {
                 String vcNum = dataSnapshot.child("CC_Info").child("visa").child("ccNum").getValue(String.class);
                 String vcDate = dataSnapshot.child("CC_Info").child("visa").child("ExpDate").getValue(String.class);
 
-                if(className!=null)
-                {
-                    databaseReference.child("cart").child("classname").setValue(className);
-                    databaseReference.child("cart").child("subtitle").setValue(subtitle);
-                    databaseReference.child("cart").child("timeslot").setValue(timeslot);
-                    databaseReference.child("cart").child("price").setValue(price);
-                }
-
                 cClass = dataSnapshot.child("cart").child("classname").getValue(String.class);
                 cSub = dataSnapshot.child("cart").child("subtitle").getValue(String.class);
                 cTime = dataSnapshot.child("cart").child("timeslot").getValue(String.class);
@@ -87,13 +80,15 @@ public class PaymentMethod extends AppCompatActivity {
 
                 if(cClass!=null)
                 {
-                    list1.setVisibility(View.VISIBLE);
+                    list3.setVisibility(View.VISIBLE);
                     cClassName.setText("Class : " + cClass);
                     cSubtitle.setText("Subtitle : "+ cSub);
                     cPrice.setText("Price : " + cPri);
                     cTimeSlot.setText("Timeslot : "+ cTime);
-
                 }
+                else
+                    list3.setVisibility(View.GONE);
+
                 if(mcNum != null )
                 {
                     list1.setVisibility(View.VISIBLE);
@@ -151,7 +146,7 @@ public class PaymentMethod extends AppCompatActivity {
             payment.setPositiveButton("OK", new DialogInterface.OnClickListener()
             {
                 public void onClick(DialogInterface dialog, int which) {
-                    addPurchaseHistory(className,timeslot,subtitle,price, total);
+                    addPurchaseHistory(cClass,cTime,cSub,cPri, total);
                     Intent pay = new Intent(getApplicationContext(), SuccessPayment.class);
                     startActivity(pay);
                 }

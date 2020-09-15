@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dream_cookery.Models.Classes;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -93,6 +94,11 @@ public class ClassInfoOverview extends AppCompatActivity {
         });
     }
             public void onPurchaseSlot(View view){
+                FirebaseAuth fBaseAuth = FirebaseAuth.getInstance();
+                String userID = fBaseAuth.getCurrentUser().getUid();
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference getCart = firebaseDatabase.getReference("Users").child(userID);
+                String sub,time;
                 Intent intent=new Intent(ClassInfoOverview.this, PaymentMethod.class);
                 String pri=price.getText().toString();
                 String t1=timeslot1.getText().toString();
@@ -107,27 +113,36 @@ public class ClassInfoOverview extends AppCompatActivity {
                 intent.putExtra("className",classNm);
                 if(timeslot1.isChecked()) {
                     intent.putExtra("timeSlot", t1);
+                    getCart.child("cart").child("timeslot").setValue(t1);
                 }
                 else if(timeslot2.isChecked()) {
                     intent.putExtra("timeSlot", t2);
+                    getCart.child("cart").child("timeslot").setValue(t2);
                 }
                 else if(timeslot3.isChecked()) {
                     intent.putExtra("timeSlot", t3);
+                    getCart.child("cart").child("timeslot").setValue(t3);
                 }
                 else {
                     intent.putExtra("timeSlot", t4);
+                    getCart.child("cart").child("timeslot").setValue(t4);
                 }
 
                 if(english.isChecked()){
                     intent.putExtra("subtitle",s1);
+                    getCart.child("cart").child("subtitle").setValue(s1);
                 }
                 else if(malay.isChecked()){
                     intent.putExtra("subtitle",s2);
+                    getCart.child("cart").child("subtitle").setValue(s2);
                 }
                 else{
                     intent.putExtra("subtitle",s3);
+                    getCart.child("cart").child("subtitle").setValue(s3);
                 }
 
+                getCart.child("cart").child("classname").setValue(classNm);
+                getCart.child("cart").child("price").setValue(pri);
                 startActivity(intent);
     }
 
