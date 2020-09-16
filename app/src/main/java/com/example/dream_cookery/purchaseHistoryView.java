@@ -72,9 +72,6 @@ public class purchaseHistoryView extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-
-
         FirebaseRecyclerOptions<History> options =
                 new FirebaseRecyclerOptions.Builder<History>()
                         .setQuery(HistoryRef, History.class)
@@ -88,12 +85,6 @@ public class purchaseHistoryView extends AppCompatActivity {
                         classViewHolder.txtClassName.setText(history.getClassName());
                         classViewHolder.txtClassDescription.setText(history.getSubtitle() + " " + history.getTimeSlot());
                         classViewHolder.txtClassPrice.setText(history.getPrice());
-
-
-                        /*classViewHolder.txtClassName.setText(history.getcName());
-                        classViewHolder.txtClassDescription.setText(history.getcDescription());
-                        classViewHolder.txtClassPrice.setText("Price = RM " + history.getcPrice() );
-                        Picasso.get().load(history.getcImage()).into(classViewHolder.imageView);*/
 
                     }
 

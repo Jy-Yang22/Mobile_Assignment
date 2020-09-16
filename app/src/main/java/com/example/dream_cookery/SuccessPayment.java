@@ -33,7 +33,6 @@ public class SuccessPayment extends AppCompatActivity {
 
     public void backhome(View view)
     {
-
         Intent home = new Intent(this, MainClassView.class);
         startActivity(home);
     }
