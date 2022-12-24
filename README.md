@@ -1,2 +1,2 @@
 # Dream_Cookery
-Mobile Application Assigment
+Mobile Application Assigment using Java
